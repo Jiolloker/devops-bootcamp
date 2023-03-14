@@ -16,6 +16,6 @@ module "jenkins" {
   instance_type = each.value.instance_type
   key_name = each.value.key_name
   monitoring = each.value.monitoring
-  subnet_id = module.vpc.vpc_private_subnets[0]
+  subnet_id = module.vpc.private_subnets[0]
   public_ip = each.value.public_ip
 }
