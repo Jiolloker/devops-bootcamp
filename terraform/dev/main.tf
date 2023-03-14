@@ -17,5 +17,5 @@ module "jenkins" {
   key_name = each.value.key_name
   monitoring = each.value.monitoring
   subnet_id = module.vpc.vpc_private_subnets[0]
-  associate_public_ip_address = each.value.public_ip
+  public_ip = each.value.public_ip
 }
