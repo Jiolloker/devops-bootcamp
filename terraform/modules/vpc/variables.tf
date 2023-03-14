@@ -14,6 +14,11 @@ variable "vpc_private_subnets" {
   type = list(string)
   description = "CIDR blocks for the private subnets"
 }
+
+variable "vpc_public_subnets" {
+  type = list(string)
+  description = "CIDR blocks for the public subnets"
+}
 variable "vpc_enable_nat_gateway" {
   type = bool
   description = "whether to enable NAT gateways for the private subnets"
