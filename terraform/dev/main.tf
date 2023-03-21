@@ -15,7 +15,7 @@ module "jenkins" {
   for_each = var.jenkins_server
   
   name = each.value.name
-  ami = each.value.ami_id
+  ami = each.value.ami
   instance_type = each.value.instance_type
   key_name = each.value.key_name
   subnet_id = module.vpc.public_subnets[0]
