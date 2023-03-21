@@ -48,7 +48,6 @@ module "ec2_instance" {
     monitoring = var.monitoring
     subnet_id = var.subnet_id
     associate_public_ip_address = var.public_ip
-    user_data_replace_on_change = true
     user_data = var.user_data
     tags = {
         Terraform = "true"
