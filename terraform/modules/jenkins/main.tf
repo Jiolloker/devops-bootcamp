@@ -31,6 +31,10 @@ module "security-group" {
         },
     ]
     egress_rules = ["all-all"]
+    tags = {
+        Terraform = "true"
+        Environment = var.environment
+    }
 }
 module "ec2_instance" {
     source = "terraform-aws-modules/ec2-instance/aws"
