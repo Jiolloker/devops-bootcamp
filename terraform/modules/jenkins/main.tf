@@ -50,7 +50,7 @@ module "ec2_instance" {
     associate_public_ip_address = var.public_ip
     user_data = <<-EOF
     #!/bin/bash
-    sudo apt-get install -y linux-generic
+    sudo apt-get install linux-generic -y
     sudo apt-get install apt-transport-https ca-certificates curl gnupg lsb-release -y
     curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --yes --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg 
     echo "deb [arch=amd64 signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
@@ -60,7 +60,7 @@ module "ec2_instance" {
     sudo chmod +x /usr/local/bin/docker-compose
     sudo usermod -aG docker ubuntu
     curl -fsSL https://raw.githubusercontent.com/edgaregonzalez/devops-bootcamp/terraform-clase38/assets/docker-compose-jenkins-server.yaml -o /home/ubuntu/docker-compose-jenkins-server.yaml
-    docker-compose -f /home/ubuntu/docker-compose-jenkins-server.yaml up -d
+    sudo docker-compose -f /home/ubuntu/docker-compose-jenkins-server.yaml up -d
     EOF
     tags = {
         Terraform = "true"
