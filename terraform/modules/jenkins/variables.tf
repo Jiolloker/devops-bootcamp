@@ -30,3 +30,7 @@ variable "environment" {
     type = string
     default = "dev"
 }
+
+variable "user_data" {
+    type = string
+}

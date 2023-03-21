@@ -42,5 +42,6 @@ variable "jenkins_server" {
     key_name = string
     monitoring = bool
     public_ip = bool
+    user_data = string
   }))
 }
