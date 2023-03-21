@@ -33,10 +33,8 @@ module "security-group" {
     egress_rules = ["all-all"]
 }
 data "aws_security_group" "jenkins-sg" {
-  filter {
-    name   = "name"
-    values = ["jenkins-sg"]
-  }
+  name   = "jenkins-sg"
+  vpc_id = data.aws_vpc.devops-vpc.id
 }
 module "ec2_instance" {
     source = "terraform-aws-modules/ec2-instance/aws"
