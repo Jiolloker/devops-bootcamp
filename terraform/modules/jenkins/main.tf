@@ -32,10 +32,6 @@ module "security-group" {
     ]
     egress_rules = ["all-all"]
 }
-data "aws_security_group" "jenkins-sg" {
-  name   = "jenkins-sg"
-  vpc_id = data.aws_vpc.devops-vpc.id
-}
 module "ec2_instance" {
     source = "terraform-aws-modules/ec2-instance/aws"
     version = "~> 3.0"
@@ -44,7 +40,7 @@ module "ec2_instance" {
     ami = var.ami
     instance_type = var.instance_type
     key_name = var.key_name
-    vpc_security_group_ids = [data.aws_security_group.jenkins-sg.id]
+    vpc_security_group_ids = var.security_group_ids
     monitoring = var.monitoring
     subnet_id = var.subnet_id
     associate_public_ip_address = var.public_ip

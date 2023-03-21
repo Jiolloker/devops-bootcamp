@@ -30,3 +30,6 @@ variable "environment" {
     type = string
     default = "dev"
 }
+variable "security_group_ids" {
+    type = list(string)
+}

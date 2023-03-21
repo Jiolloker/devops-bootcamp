@@ -44,3 +44,9 @@ variable "jenkins_server" {
     public_ip = bool
   }))
 }
+data "aws_security_group" "jenkins-sg" {
+  filter {
+    name   = "tag:Name"
+    values = ["jenkins-sg"]
+  }
+}

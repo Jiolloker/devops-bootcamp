@@ -21,4 +21,5 @@ module "jenkins" {
   subnet_id = module.vpc.public_subnets[0]
   monitoring = each.value.monitoring
   environment = var.environment
+  security_group_ids = [data.aws_security_group.jenkins-sg.id]
 }
