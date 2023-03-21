@@ -6,7 +6,7 @@
   vpc_enable_nat_gateway = false
 
 jenkins_server = {
-  "servidor1" = {
+  "servidor2" = {
     name = "jenkins-server"
     ami = "ami-0557a15b87f6559cf"
     instance_type = "t3.medium"
