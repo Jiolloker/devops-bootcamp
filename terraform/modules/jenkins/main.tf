@@ -40,7 +40,7 @@ module "ec2_instance" {
     ami = var.ami
     instance_type = var.instance_type
     key_name = var.key_name
-    vpc_security_group_ids = var.security_group_ids
+    vpc_security_group_ids = module.security-group.security_group_id
     monitoring = var.monitoring
     subnet_id = var.subnet_id
     associate_public_ip_address = var.public_ip
