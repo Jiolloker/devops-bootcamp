@@ -7,3 +7,18 @@ module "vpc" {
   vpc_public_subnets = var.vpc_public_subnets
   vpc_enable_nat_gateway = var.vpc_enable_nat_gateway
 }
+
+
+module "jenkins" {
+  source = "../modules/jenkins"
+  
+  for_each = var.jenkins_server
+  
+  name = each.value.name
+  ami = each.value.ami_id
+  instance_type = each.value.instance_type
+  key_name = each.value.key_name
+  subnet_id = module.vpc.public_subnets[0]
+  monitoring = each.value.monitoring
+  environment = var.environment
+}

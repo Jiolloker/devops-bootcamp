@@ -27,3 +27,20 @@ variable "vpc_enable_nat_gateway" {
   type = bool
   description = "whether to enable NAT gateways for the private subnets"
 }
+
+variable "environment" {
+  type = string
+  description = "environment name"
+  default = "dev"
+}
+
+variable "jenkins_server" {
+  type = map(object({
+    name = string
+    ami = string
+    instance_type = string
+    key_name = string
+    monitoring = bool
+    public_ip = bool
+  }))
+}

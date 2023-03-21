@@ -1,4 +1,4 @@
-variable "jenkins-name" {
+variable "name" {
     type = string
     default = "jenkins"
 }
@@ -25,4 +25,8 @@ variable "subnet_id" {
 variable "public_ip" {
     type = bool
     default = true
+}
+variable "environment" {
+    type = string
+    default = "dev"
 }

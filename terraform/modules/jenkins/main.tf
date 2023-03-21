@@ -12,8 +12,24 @@ module "security-group" {
     name = "jenkins-sg"
     vpc_id = data.aws_vpc.devops-vpc.id
     description = "Security group for Jenkins"
-    ingress_cidr_blocks = ["186.109.163.235/32"]
+    ingress_cidr_blocks = ["190.231.142.81/32"]
     ingress_rules = ["ssh-tcp"]
+    ingress_with_cidr_blocks = [
+      {
+        from_port   = 8080
+        to_port     = 8080
+        protocol    = "tcp"
+        description = "Jenkins-web"
+        cidr_blocks = "190.231.142.81/32"
+      },
+      {
+        from_port   = 50000
+        to_port     = 50000
+        protocol    = "tcp"
+        description = "Jenkins-agent"
+        cidr_blocks = "190.231.142.81/32"
+        },
+    ]
     egress_rules = ["all-all"]
 }
 data "aws_security_group" "jenkins-sg" {
@@ -26,7 +42,7 @@ module "ec2_instance" {
     source = "terraform-aws-modules/ec2-instance/aws"
     version = "~> 3.0"
 
-    name = var.jenkins-name
+    name = var.name
     ami = var.ami
     instance_type = var.instance_type
     key_name = var.key_name
