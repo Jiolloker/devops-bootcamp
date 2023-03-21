@@ -21,5 +21,4 @@ module "jenkins" {
   subnet_id = module.vpc.public_subnets[0]
   monitoring = each.value.monitoring
   environment = var.environment
-  user_data = each.value.user_data
 }
