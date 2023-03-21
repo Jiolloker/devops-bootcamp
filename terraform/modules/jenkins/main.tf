@@ -58,6 +58,9 @@ module "ec2_instance" {
     sudo apt-get install docker-ce docker-ce-cli containerd.io -y
     sudo curl -L "https://github.com/docker/compose/releases/download/1.29.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
     sudo chmod +x /usr/local/bin/docker-compose
+    sudo usermod -aG docker ubuntu
+    curl -fsSL https://raw.githubusercontent.com/edgaregonzalez/devops-bootcamp/terraform-clase38/assets/docker-compose-jenkins-server.yaml -o /home/ubuntu/docker-compose-jenkins-server.yaml
+    docker-compose -f /home/ubuntu/docker-compose-jenkins-server.yaml up -d
     EOF
     tags = {
         Terraform = "true"
