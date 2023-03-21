@@ -34,7 +34,7 @@ module "security-group" {
 }
 data "aws_security_group" "jenkins-sg" {
   filter {
-    name   = "tag:Name"
+    name   = "name"
     values = ["jenkins-sg"]
   }
 }
