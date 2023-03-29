@@ -1,0 +1,7 @@
+- name: add devops user
+  ansible.builtin.user:
+    name: devops
+    state: present
+    groups: sudo
+    append: yes
+    password: $6$rounds=656000$Qs7s0n0xRt7Z8Ytq$PpYlXlXc7q8q1s2Q7s0n0xRt7Z8Ytq
