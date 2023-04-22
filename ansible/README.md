@@ -35,8 +35,8 @@ ansible-galaxy collection install ansible.windows
 
 Crear un pipeline de jenkins que ejecute un playbook de ansible que instale un servicio en un servidor linux.
 
-* Hay que levantar stack (jenkins, imagen docker agent, maquina linux).
-* Crear un jenkins file que ejecute el playbook de ansible.
+* Hay que levantar el stack (jenkins, imagen docker agent, maquina linux).
+* Crear un jenkins file que ejecute el playbook de ansible. (ver como configurar variables en jenkins y crear el agent con las tools)
 * Pueden usar el plugin de ansible de jenkins o ejecutar en anget (docker).
 
 Opcional:
