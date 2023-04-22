@@ -1,0 +1,6 @@
+# add windows user to a group
+- name: Add user to group
+  ansible.windows.win_user:
+    name: "{{ admin_user }}"
+    groups: "{{ admin_user_groups }}"
+    state: present

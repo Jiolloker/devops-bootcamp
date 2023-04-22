@@ -1,0 +1,8 @@
+- name: add admin user
+  ansible.builtin.user:
+    name: "{{ admin_user }}"
+    groups: "{{ admin_user_groups }}"
+    home: "/home/{{ admin_user }}"
+    shell: /bin/bash
+    append: yes
+  become: yes

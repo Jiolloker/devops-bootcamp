@@ -1,0 +1,34 @@
+- name: Configuration server
+  hosts: all
+  debugger: on_failed
+  gather_facts: True
+  vars:
+    ansible_python_interpreter: /usr/bin/python3
+  tasks:
+    - name: linux stuff
+      when: ansible_os_family == 'Debian'
+      become: yes
+      tags: [linux]
+      block:
+        - name: Install Docker on linux
+          ansible.builtin.import_tasks: ./includes/linux/install-docker.yaml
+          tags: [docker-install]
+        - name: Add admin user
+          vars:
+            admin_user: admin
+            admin_user_groups: sudo
+          ansible.builtin.import_tasks: ./includes/linux/add-user.yaml
+          tags: [linux-add-user]
+    - name: windows stuff
+      when: ansible_os_family == 'Windows'
+      tags: [windows]
+      block:
+        - name: Install IIS Webserver
+          ansible.builtin.import_tasks: ./includes/windows/install-iis.yaml
+          tags: [iis-install]
+        - name: Add admin user
+          vars:
+            admin_user: admin
+            admin_user_groups: Administrators
+          ansible.builtin.import_tasks: ./includes/windows/add-user.yaml
+          tags: [windows-add-user]
