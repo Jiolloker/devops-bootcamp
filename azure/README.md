@@ -27,3 +27,4 @@ Microsoft learning path [Azure Fundamentals](https://learn.microsoft.com/en-us/c
 AZ-900T00-A: Microsoft Azure Fundamentals [AZ-900T00-A](https://learn.microsoft.com/training/courses/az-900t00?WT.mc_id=ilt_partner_webpage_wwl&ocid=3297024#study-guide)
 Configure terraform with Azure [terraform](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/guides/service_principal_client_secret)|
 Free services [Azure free services](https://portal.azure.com/#view/Microsoft_Azure_Billing/FreeServicesBlade)
+Workshop terraform with Azure [TF Azure workshop](https://developer.hashicorp.com/terraform/tutorials/azure-get-started/azure-build)
